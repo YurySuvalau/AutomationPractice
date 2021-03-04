@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" name="Test suite" parallel="methods">
+    <test name="Study Test">
+    </test>
+    <test name="1">
+        <classes>
+            <class name="tests.HamburgerMenuTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="2">
+        <classes>
+            <class name="tests.CheckoutTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="3">
+        <classes>
+            <class name="tests.ProductsTest"/>
+        </classes>
+    </test> <!-- Test -->
+    <test name="4">
+        <classes>
+            <class name="tests.LoginTest"/>
+        </classes>
+    </test> <!-- Test -->
+</suite>
+
