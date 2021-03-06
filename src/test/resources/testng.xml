@@ -4,22 +4,7 @@
     <test name="Study Test">
     </test>
     <test name="1">
-        <classes>
-            <class name="tests.HamburgerMenuTest"/>
-        </classes>
-    </test> <!-- Test -->
-    <test name="2">
-        <classes>
-            <class name="tests.CheckoutTest"/>
-        </classes>
-    </test> <!-- Test -->
-    <test name="3">
-        <classes>
-            <class name="tests.ProductsTest"/>
-        </classes>
-    </test> <!-- Test -->
-    <test name="4">
-        <classes>
+               <classes>
             <class name="tests.LoginTest"/>
         </classes>
     </test> <!-- Test -->
