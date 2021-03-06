@@ -8,9 +8,9 @@ public class FilterInCategoryTest extends BaseTest {
     public void selectWhiteColorInFilter() {
         loginPage.openPage()
                 .waitForPageOpened()
-                .enterLoginData(EMAIL, PASSWORD);
+                .enterLoginData(EMAIL, PASSWORD)
+                .waitForPageOpened();
         mainPage.openPage()
-                .waitForPageOpened()
                 .clickOnDressBtn()
                 .waitForPageOpened()
                 .selectColorWhiteInFilter();
@@ -21,11 +21,14 @@ public class FilterInCategoryTest extends BaseTest {
     public void selectSubcategoryCasualDress() {
         loginPage.openPage()
                 .waitForPageOpened()
-                .enterLoginData(EMAIL, PASSWORD);
+                .enterLoginData(EMAIL, PASSWORD)
+                .waitForPageOpened();
         mainPage.openPage()
-                .waitForPageOpened()
                 .clickOnDressBtn()
-                .waitForPageOpened()
-                .selectColorWhiteInFilter();
+                .waitForPageOpened();
+        Assert.assertEquals(categoryPage.getProductCount(), "Showing 1 - 5 of 5 items");
+        categoryPage.clickCasualDressSubcategory();
+        Assert.assertEquals(categoryPage.getProductCount(), "Showing 1 - 1 of 1 item");
     }
+}
 

@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class AddressCheckoutPage extends BasePage implements Constants {
-    private static final By PROCEED_TO_CHECKOUT_BTN = By.xpath("//*[@name='processAddress']");
+    private static final By PROCEED_TO_CHECKOUT_BTN = By.name("processAddress");
 
     public AddressCheckoutPage(WebDriver driver) {
         super(driver);
@@ -23,5 +23,11 @@ public class AddressCheckoutPage extends BasePage implements Constants {
         }
         return this;
     }
+
+    public ShippingCheckoutPage clickProceedToCheckoutBtn() {
+        driver.findElement(PROCEED_TO_CHECKOUT_BTN).click();
+        return new ShippingCheckoutPage(driver);
+    }
+
 
 }

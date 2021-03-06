@@ -32,11 +32,11 @@ public class LoginPage extends BasePage implements Constants {
         return this;
     }
 
-    public MainPage enterLoginData(String email, String password) {
+    public CustomerAccountPage enterLoginData(String email, String password) {
         driver.findElement(EMAIL_INPUT).sendKeys(email);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(SIGN_IN_BUTTON).click();
-        return new MainPage(driver);
+        return new CustomerAccountPage(driver);
     }
 
     public void getUrl() {

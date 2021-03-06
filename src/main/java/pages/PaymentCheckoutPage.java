@@ -23,4 +23,5 @@ public class PaymentCheckoutPage extends BasePage implements Constants {
         }
         return this;
     }
+    public
 }

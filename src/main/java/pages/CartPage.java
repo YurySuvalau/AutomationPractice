@@ -10,6 +10,7 @@ import org.testng.Assert;
 
 @Log4j2
 public class CartPage extends BasePage implements Constants {
+
     private static final By PROCEED_TO_CHECKOUT_BTN = By.xpath("//*[@class='button btn btn-default standard-checkout button-medium']");
     private static final By QUANTITY_INPUT = By.xpath("//*[@class='cart_quantity_input form-control grey']");
     private static final By UNIT_PRICE = By.xpath("//*[@class='cart_unit']");
@@ -21,7 +22,6 @@ public class CartPage extends BasePage implements Constants {
     private static final By DELETE_BTN = By.xpath("//*[@title='Delete']");
     private static final By ITEM_NAME = By.xpath("//*[@class='cart_description']");
     private static final By EMPTY_CART_MESSAGE = By.xpath("//*[@class='alert alert-warning']");
-
 
     public CartPage(WebDriver driver) {
         super(driver);
@@ -80,6 +80,11 @@ public class CartPage extends BasePage implements Constants {
             Assert.fail(String.format("Message is not displayed! Locator: '%s' was not found!", EMPTY_CART_MESSAGE));
         }
         return driver.findElement(EMPTY_CART_MESSAGE).isDisplayed();
+    }
+
+    public AddressCheckoutPage clickProceedToCheckout() {
+        driver.findElement(PROCEED_TO_CHECKOUT_BTN).click();
+        return new AddressCheckoutPage(driver);
     }
 
 }

@@ -33,6 +33,8 @@ public class BaseTest implements TestConstants {
     ProductPage productPage;
     MyWishlistsPage myWishlistsPage;
     CategoryPage categoryPage;
+    SearchPage searchPage;
+
 
     @BeforeMethod
     public void createDriver(ITestContext context) {
@@ -64,6 +66,7 @@ public class BaseTest implements TestConstants {
         productPage = new ProductPage(driver);
         myWishlistsPage = new MyWishlistsPage(driver);
         categoryPage = new CategoryPage(driver);
+        searchPage = new SearchPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)

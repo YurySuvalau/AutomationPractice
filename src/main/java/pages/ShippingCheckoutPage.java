@@ -24,4 +24,14 @@ public class ShippingCheckoutPage extends BasePage implements Constants {
         }
         return this;
     }
+
+    public ShippingCheckoutPage clickShippingOptionCheckbox() {
+        driver.findElement(SHIPPING_OPTION_CHECKBOX).click();
+        return this;
+    }
+
+    public PaymentCheckoutPage clickProceedToCheckoutBtn() {
+        driver.findElement(PROCEED_TO_CHECKOUT_BTN).click();
+        return new PaymentCheckoutPage(driver);
+    }
 }

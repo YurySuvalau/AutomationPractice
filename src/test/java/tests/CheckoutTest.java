@@ -3,23 +3,25 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class WishlistTest extends BaseTest {
+public class CheckoutTest extends BaseTest {
     @Test
-    public void addProductToWishlist() {
+    public void buyProductByBankWire() {
         loginPage.openPage()
                 .waitForPageOpened()
                 .enterLoginData(EMAIL, PASSWORD)
                 .waitForPageOpened();
         mainPage.openPage()
                 .clickOnPrintedSummerDress()
+                .addToCart()
+                .proceedToCheckoutClick()
+                .clickProceedToCheckout()
                 .waitForPageOpened()
-                .wishlistClick()
-                .closeMessage();
-        customerAccountPage.openPage()
+                .clickProceedToCheckoutBtn()
                 .waitForPageOpened()
-                .myWishlistsClick()
+                .clickShippingOptionCheckbox()
+                .clickProceedToCheckoutBtn()
                 .waitForPageOpened()
-                .myWishlistNameClick();
-        Assert.assertTrue(myWishlistsPage.isDisplayedPrintedSummerDress());
-    }
+                .
+
+
 }

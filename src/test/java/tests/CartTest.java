@@ -9,9 +9,9 @@ public class CartTest extends BaseTest {
     public void addProductInShoppingCart() {
         loginPage.openPage()
                 .waitForPageOpened()
-                .enterLoginData(EMAIL, PASSWORD);
+                .enterLoginData(EMAIL, PASSWORD)
+                .waitForPageOpened();
         mainPage.openPage()
-                .waitForPageOpened()
                 .enterToBlouseItem()
                 .selectWhiteColorOfItem()
                 .addToCart()
@@ -26,9 +26,9 @@ public class CartTest extends BaseTest {
     public void getDiscountInCart() {
         loginPage.openPage()
                 .waitForPageOpened()
-                .enterLoginData(EMAIL, PASSWORD);
+                .enterLoginData(EMAIL, PASSWORD)
+                .waitForPageOpened();
         mainPage.openPage()
-                .waitForPageOpened()
                 .clickOnPrintedSummerDress()
                 .addToCart()
                 .proceedToCheckoutClick()
@@ -40,9 +40,9 @@ public class CartTest extends BaseTest {
     public void deleteProductFromCart() {
         loginPage.openPage()
                 .waitForPageOpened()
-                .enterLoginData(EMAIL, PASSWORD);
+                .enterLoginData(EMAIL, PASSWORD)
+                .waitForPageOpened();
         mainPage.openPage()
-                .waitForPageOpened()
                 .clickOnPrintedSummerDress()
                 .addToCart()
                 .proceedToCheckoutClick()
@@ -50,6 +50,4 @@ public class CartTest extends BaseTest {
                 .deleteBtnClick();
         Assert.assertTrue(cartPage.isDisplayedEmptyCartMessage());
     }
-
-
 }

@@ -55,8 +55,7 @@ public class CategoryPage extends BasePage implements Constants {
         return this;
     }
 
-    public CategoryPage getProductCount() {
-        driver.findElement(PRODUCT_COUNT).getText().trim();
-        return this;
+    public String getProductCount() {
+        return driver.findElement(PRODUCT_COUNT).getText().trim();
     }
 }
