@@ -10,7 +10,7 @@ import org.testng.Assert;
 
 public class OrderConfirmationPage extends BasePage implements Constants {
     private static final By CONFIRM_ORDER_MESSAGE = By.xpath("//*[@class='cheque-indent']/*[@class='dark']");
-
+    private static final By ORDER_SUM = By.xpath("//*[@class='price']");
     public OrderConfirmationPage(WebDriver driver) {
         super(driver);
     }
@@ -27,5 +27,8 @@ public class OrderConfirmationPage extends BasePage implements Constants {
 
     public boolean getOrderConfirmationMessage() {
         return driver.findElement(CONFIRM_ORDER_MESSAGE).isDisplayed();
+    }
+    public String getOrderSum(){
+        return  driver.findElement(ORDER_SUM).getText();
     }
 }

@@ -21,7 +21,10 @@ public class CheckoutTest extends BaseTest {
                 .clickShippingOptionCheckbox()
                 .clickProceedToCheckoutBtn()
                 .waitForPageOpened()
-                .
-
-
+                .clickOnPayByBankWire()
+                .waitForPageOpened()
+                .clickOnIConfirmMyOrder()
+                .waitForPageOpened();
+        Assert.assertTrue(orderConfirmationPage.getOrderConfirmationMessage());
+    }
 }

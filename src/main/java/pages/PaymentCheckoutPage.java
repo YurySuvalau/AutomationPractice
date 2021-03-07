@@ -23,5 +23,9 @@ public class PaymentCheckoutPage extends BasePage implements Constants {
         }
         return this;
     }
-    public
+
+    public BankWirePaymentPage clickOnPayByBankWire() {
+        driver.findElement(PAYMENT_BY_BANK_WARE_BTN).click();
+        return new BankWirePaymentPage(driver);
+    }
 }
