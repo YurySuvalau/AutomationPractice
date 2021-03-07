@@ -24,6 +24,7 @@ public class AddressCheckoutPage extends BasePage implements Constants {
         }
         return this;
     }
+
     @Step("Click to Proceed to Checkout")
     public ShippingCheckoutPage clickProceedToCheckoutBtn() {
         driver.findElement(PROCEED_TO_CHECKOUT_BTN).click();

@@ -38,10 +38,9 @@ public class MyWishlistsPage extends BasePage implements Constants {
         }
         return driver.findElement(PRINTED_SUMMER_DRESS).isDisplayed();
     }
+
     public MyWishlistsPage openPage() {
-        driver.get(URL + URL_MAIN_PAGE+URL_MY_WISHLISTS);
+        driver.get(URL + URL_MAIN_PAGE + URL_MY_WISHLISTS);
         return this;
     }
-
-
 }

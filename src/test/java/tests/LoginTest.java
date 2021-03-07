@@ -16,7 +16,7 @@ public class LoginTest extends BaseTest {
     public void loginWithEmptyPassField() {
         loginPage.openPage()
                 .enterLoginData(EMAIL, "");
-        Assert.assertTrue(loginPage.requiredPswrdMessage());
+        Assert.assertTrue(loginPage.requiredPasswordMessage());
     }
 
 }

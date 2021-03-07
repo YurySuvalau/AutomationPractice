@@ -1,7 +1,6 @@
 package pages;
 
 import constants.Constants;
-import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +10,6 @@ import org.testng.Assert;
 
 import java.util.List;
 
-@Log4j2
 public class SearchPage extends BasePage implements Constants {
     private static final By SEARCH_LABEL = By.xpath("//*[@class='navigation_page']");
     private static final By LIST_ITEM = By.xpath("//*[@class='product_list grid row']//*[@class='product-name']");
@@ -37,5 +35,4 @@ public class SearchPage extends BasePage implements Constants {
         }
         return false;
     }
-
 }

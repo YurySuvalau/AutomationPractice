@@ -3,7 +3,6 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
 public class CartTest extends BaseTest {
     @Test(description = "Add product 'Blouse' to shopping cart")
     public void addProductToShoppingCart() {

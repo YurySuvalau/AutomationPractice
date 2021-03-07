@@ -25,6 +25,7 @@ public class BankWirePaymentPage extends BasePage implements Constants {
         }
         return this;
     }
+
     @Step("Click to Confirm my order")
     public OrderConfirmationPage clickOnIConfirmMyOrder() {
         driver.findElement(I_CONFIRM_MY_ORDER_BTN).click();

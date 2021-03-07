@@ -8,7 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
-
 public class PaymentCheckoutPage extends BasePage implements Constants {
     private static final By PAYMENT_BY_BANK_WARE_BTN = By.xpath("//*[@class='bankwire']");
 

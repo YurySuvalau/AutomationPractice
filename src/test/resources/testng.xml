@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="2" name="Test suite" parallel="tests">
-    <test name="http://automationpractice.com/">
+    <test name="Login test">
         <classes>
             <class name="tests.LoginTest"/>
+        </classes>
+    </test>
+    <test name="Cart test">
+        <classes>
             <class name="tests.CartTest"/>
+        </classes>
+    </test>
+    <test name="Checkout test">
+        <classes>
             <class name="tests.CheckoutTest"/>
+        </classes>
+    </test>
+    <test name="Filter in category test">
+        <classes>
             <class name="tests.FilterInCategoryTest"/>
+        </classes>
+    </test>
+    <test name="Search test">
+        <classes>
             <class name="tests.SearchTest"/>
+        </classes>
+    </test>
+    <test name="Whishlist test">
+        <classes>
             <class name="tests.WishlistTest"/>
         </classes>
     </test> <!-- Test -->

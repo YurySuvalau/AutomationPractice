@@ -29,14 +29,13 @@ public class OrderHistoryPage extends BasePage implements Constants {
         driver.findElement(ORDER_NUMBER).click();
         return this;
     }
-    public boolean checkProductName(){
+
+    public boolean checkProductName() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(PRODUCT_INFO));
         } catch (TimeoutException exception) {
             Assert.fail(String.format("Product info is not displayed! Locator: '%s' was not found!", PRODUCT_INFO));
         }
         return driver.findElement(PRODUCT_INFO).getText().contains("Printed Summer Dress");
-
     }
-
 }
