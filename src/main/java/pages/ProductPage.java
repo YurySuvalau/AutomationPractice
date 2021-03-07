@@ -1,6 +1,7 @@
 package pages;
 
 import constants.Constants;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -28,26 +29,31 @@ public class ProductPage extends BasePage implements Constants {
         return this;
     }
 
+    @Step("Open product page")
     public ProductPage openPage() {
         driver.get(URL + URL_MAIN_PAGE + URL_PRODUCTS_PAGE);
         return this;
     }
 
+    @Step("Select 'white' color of product")
     public ProductPage selectWhiteColorOfItem() {
         driver.findElement(SELECT_COLOR_WHITE).click();
         return this;
     }
 
+    @Step("Click 'Add to cart' button")
     public AddedProductModalPage addToCart() {
         driver.findElement(ADD_TO_CART_BUTTON).click();
         return new AddedProductModalPage(driver);
     }
 
+    @Step("Click on 'Wishlist' button")
     public ProductPage wishlistClick() {
         driver.findElement(WISHLIST_BTN).click();
         return this;
     }
 
+    @Step("Close pop-up message")
     public ProductPage closeMessage() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(MESSAGE_ADDED_TO_WISHLIST));

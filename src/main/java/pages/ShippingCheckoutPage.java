@@ -1,6 +1,7 @@
 package pages;
 
 import constants.Constants;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -25,11 +26,13 @@ public class ShippingCheckoutPage extends BasePage implements Constants {
         return this;
     }
 
+    @Step("Click on 'Shipping option' checkbox")
     public ShippingCheckoutPage clickShippingOptionCheckbox() {
         driver.findElement(SHIPPING_OPTION_CHECKBOX).click();
         return this;
     }
 
+    @Step("Click 'Proceed to checkout' button")
     public PaymentCheckoutPage clickProceedToCheckoutBtn() {
         driver.findElement(PROCEED_TO_CHECKOUT_BTN).click();
         return new PaymentCheckoutPage(driver);

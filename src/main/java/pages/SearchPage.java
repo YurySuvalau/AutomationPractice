@@ -31,10 +31,9 @@ public class SearchPage extends BasePage implements Constants {
     }
 
     public boolean getListAfterSearch() {
-
         List<WebElement> searchResult = driver.findElements(LIST_ITEM);
-        for (int i = 0; i < searchResult.size(); i++) {
-            return searchResult.get(i).getText().trim().contains("Summer" + "Dress");
+        for (WebElement webElement : searchResult) {
+            return webElement.getText().trim().contains("Summer" + "Dress");
         }
         return false;
     }

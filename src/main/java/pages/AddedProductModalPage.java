@@ -1,6 +1,7 @@
 package pages;
 
 import constants.Constants;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +10,6 @@ import org.testng.Assert;
 
 public class AddedProductModalPage extends BasePage implements Constants {
     private static final By PROCEED_TO_CHECKOUT_BTN = By.xpath("//*[@title='Proceed to checkout']");
-    private static final By CONTINUE_SHOPPING_BTN = By.xpath("//*[@title='Continue shopping']");
 
     public AddedProductModalPage(WebDriver driver) {
         super(driver);
@@ -24,8 +24,8 @@ public class AddedProductModalPage extends BasePage implements Constants {
         }
         return this;
     }
-
-    public CartPage proceedToCheckoutClick(){
+    @Step("Click to Proceed to Checkout")
+    public CartPage proceedToCheckoutClick() {
         driver.findElement(PROCEED_TO_CHECKOUT_BTN).click();
         return new CartPage(driver);
     }

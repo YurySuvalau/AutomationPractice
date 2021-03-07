@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CheckoutTest extends BaseTest {
-    @Test
+    @Test(description = "Buying product 'Printed Summer Dress' by Bank Wire")
     public void buyProductByBankWire() {
         loginPage.openPage()
                 .waitForPageOpened()
@@ -25,6 +25,7 @@ public class CheckoutTest extends BaseTest {
                 .waitForPageOpened()
                 .clickOnIConfirmMyOrder()
                 .waitForPageOpened();
+        Assert.assertEquals(orderConfirmationPage.getOrderSum(), "$30.98");
         Assert.assertTrue(orderConfirmationPage.getOrderConfirmationMessage());
     }
 }

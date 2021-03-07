@@ -1,6 +1,7 @@
 package pages;
 
 import constants.Constants;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -27,11 +28,13 @@ public class LoginPage extends BasePage implements Constants {
         return this;
     }
 
+    @Step("Open login page")
     public LoginPage openPage() {
         driver.get(URL + URL_LOGIN_PAGE);
         return this;
     }
 
+    @Step("Enter email and password")
     public CustomerAccountPage enterLoginData(String email, String password) {
         driver.findElement(EMAIL_INPUT).sendKeys(email);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
@@ -43,7 +46,8 @@ public class LoginPage extends BasePage implements Constants {
         driver.getCurrentUrl();
     }
 
-    public boolean requiredPswrdMessage() {
+    @Step("Check message 'Required password'")
+    public boolean requiredPasswordMessage() {
         return driver.findElement(REQUIRED_PASSWORD_MESSAGE).isDisplayed();
     }
 }

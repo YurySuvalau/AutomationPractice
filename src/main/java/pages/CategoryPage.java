@@ -1,15 +1,12 @@
 package pages;
 
 import constants.Constants;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
-
-import javax.swing.*;
 
 public class CategoryPage extends BasePage implements Constants {
     private static final By WHITE_COLOR_IN_FILTER = By.name("layered_id_attribute_group_8");
@@ -31,20 +28,24 @@ public class CategoryPage extends BasePage implements Constants {
         return this;
     }
 
+    @Step("Open category page")
     public CategoryPage openPage() {
         driver.get(URL + URL_MAIN_PAGE + URL_CATEGORY);
         return this;
     }
 
+    @Step("Select 'white' color in category filter")
     public CategoryPage selectColorWhiteInFilter() {
         driver.findElement(WHITE_COLOR_IN_FILTER).click();
         return this;
     }
 
+    @Step("Loading logo displayed")
     public boolean isDisplayedLoadingLogo() {
         return driver.findElement(LOADING_LOGO).isDisplayed();
     }
 
+    @Step("Click on 'Casual Dress' category")
     public CategoryPage clickCasualDressSubcategory() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(CASUAL_DRESS_SUBCATEGORY));
@@ -55,6 +56,7 @@ public class CategoryPage extends BasePage implements Constants {
         return this;
     }
 
+    @Step("Get product count")
     public String getProductCount() {
         return driver.findElement(PRODUCT_COUNT).getText().trim();
     }

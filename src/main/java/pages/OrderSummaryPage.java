@@ -1,6 +1,7 @@
 package pages;
 
 import constants.Constants;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -9,8 +10,6 @@ import org.testng.Assert;
 
 public class OrderSummaryPage extends BasePage implements Constants {
     private static final By PROCEED_TO_CHECKOUT_BTN = By.xpath("//*[@class='cart_navigation clearfix']//*[@title='Proceed to checkout']//span");
-    private static final By TOTAL_PRICE = By.xpath("//*[@id='amount'][text()='$30.98']");
-    private static final By ORDER_COMPLETE_MESSAGE = By.xpath("//*[@class='cheque-indent']");
 
     public OrderSummaryPage(WebDriver driver) {
         super(driver);
@@ -26,9 +25,9 @@ public class OrderSummaryPage extends BasePage implements Constants {
         return this;
     }
 
+    @Step("Click proceed to checkout button")
     public ShippingCheckoutPage clickOnProceedToCheckoutBtn() {
         driver.findElement(PROCEED_TO_CHECKOUT_BTN).click();
         return new ShippingCheckoutPage(driver);
     }
-
 }

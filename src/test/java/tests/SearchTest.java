@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SearchTest extends BaseTest {
-    @Test
+    @Test(description = "Searching product 'Summer Dress'")
     public void searchTest() {
         loginPage.openPage()
                 .waitForPageOpened()

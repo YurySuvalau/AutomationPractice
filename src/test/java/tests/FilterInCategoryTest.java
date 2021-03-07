@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class FilterInCategoryTest extends BaseTest {
-    @Test
+    @Test(description = "Select 'white color' of product in category page")
     public void selectWhiteColorInFilter() {
         loginPage.openPage()
                 .waitForPageOpened()
@@ -17,7 +17,7 @@ public class FilterInCategoryTest extends BaseTest {
         Assert.assertFalse(categoryPage.isDisplayedLoadingLogo());
     }
 
-    @Test
+    @Test(description = "Select subcategory 'Casual Dress' in category page")
     public void selectSubcategoryCasualDress() {
         loginPage.openPage()
                 .waitForPageOpened()

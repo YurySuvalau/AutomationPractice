@@ -1,6 +1,7 @@
 package pages;
 
 import constants.Constants;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -27,19 +28,28 @@ public class CustomerAccountPage extends BasePage implements Constants {
         return this;
     }
 
+    @Step("Open customer account page")
     public CustomerAccountPage openPage() {
         driver.get(URL + URL_MAIN_PAGE + URL_ACCOUNT_PAGE);
         return this;
     }
 
+    @Step("Click on 'My wishlist' button")
     public MyWishlistsPage myWishlistsClick() {
         driver.findElement(WISHLISTS_BTN).click();
         return new MyWishlistsPage(driver);
     }
 
+    @Step("Click on 'search field' and search product 'Summer Dress'")
     public SearchPage searchItem() {
         driver.findElement(SEARCH_INPUT).sendKeys("Summer Dress");
         driver.findElement(SEARCH_BTN).click();
         return new SearchPage(driver);
+    }
+
+    @Step("Click on order history button")
+    public OrderHistoryPage clickOnOrderHistoryBtn() {
+        driver.findElement(ORDER_HISTORY_BTN).click();
+        return new OrderHistoryPage(driver);
     }
 }
