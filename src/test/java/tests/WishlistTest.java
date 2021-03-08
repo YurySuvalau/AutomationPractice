@@ -2,13 +2,14 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.PropertyReader;
 
 public class WishlistTest extends BaseTest {
     @Test(description = "Add product to wishlist")
     public void addProductToWishlist() {
         loginPage.openPage()
                 .waitForPageOpened()
-                .enterLoginData(EMAIL, PASSWORD)
+                .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened();
         mainPage.openPage()
                 .clickOnPrintedSummerDress()
@@ -27,7 +28,7 @@ public class WishlistTest extends BaseTest {
     public void checkOrderHistory() {
         loginPage.openPage()
                 .waitForPageOpened()
-                .enterLoginData(EMAIL, PASSWORD)
+                .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened();
         mainPage.openPage()
                 .clickOnPrintedSummerDress()
@@ -45,7 +46,7 @@ public class WishlistTest extends BaseTest {
                 .waitForPageOpened()
                 .clickOnPayByBankWire()
                 .waitForPageOpened()
-                .clickOnIConfirmMyOrder()
+                .clickOnIConfirmMyOrderBtn()
                 .waitForPageOpened();
         customerAccountPage.openPage()
                 .waitForPageOpened()

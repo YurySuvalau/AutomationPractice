@@ -25,7 +25,7 @@ public class AddedProductModalPage extends BasePage implements Constants {
         return this;
     }
 
-    @Step("Click to Proceed to Checkout")
+    @Step("Click to Proceed to Checkout on modal page")
     public CartPage proceedToCheckoutClick() {
         driver.findElement(PROCEED_TO_CHECKOUT_BTN).click();
         return new CartPage(driver);

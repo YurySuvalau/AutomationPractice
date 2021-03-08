@@ -34,20 +34,20 @@ public class CustomerAccountPage extends BasePage implements Constants {
         return this;
     }
 
-    @Step("Click on 'My wishlist' button")
+    @Step("Click on 'My wishlist' button on customer account page")
     public MyWishlistsPage myWishlistsClick() {
         driver.findElement(WISHLISTS_BTN).click();
         return new MyWishlistsPage(driver);
     }
 
-    @Step("Click on 'search field' and search product 'Summer Dress'")
+    @Step("Click on 'search field' and search product 'Summer Dress' on customer account page")
     public SearchPage searchItem() {
         driver.findElement(SEARCH_INPUT).sendKeys("Summer Dress");
         driver.findElement(SEARCH_BTN).click();
         return new SearchPage(driver);
     }
 
-    @Step("Click on order history button")
+    @Step("Click on 'Order history button' on customer account page")
     public OrderHistoryPage clickOnOrderHistoryBtn() {
         driver.findElement(ORDER_HISTORY_BTN).click();
         return new OrderHistoryPage(driver);

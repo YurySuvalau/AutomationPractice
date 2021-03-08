@@ -34,7 +34,7 @@ public class LoginPage extends BasePage implements Constants {
         return this;
     }
 
-    @Step("Enter email and password")
+    @Step("Enter email and password on login page")
     public CustomerAccountPage enterLoginData(String email, String password) {
         driver.findElement(EMAIL_INPUT).sendKeys(email);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
@@ -42,11 +42,7 @@ public class LoginPage extends BasePage implements Constants {
         return new CustomerAccountPage(driver);
     }
 
-    public void getUrl() {
-        driver.getCurrentUrl();
-    }
-
-    @Step("Check message 'Required password'")
+    @Step("Check message 'Required password' on login page")
     public boolean requiredPasswordMessage() {
         return driver.findElement(REQUIRED_PASSWORD_MESSAGE).isDisplayed();
     }

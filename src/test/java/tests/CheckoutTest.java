@@ -2,13 +2,14 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.PropertyReader;
 
 public class CheckoutTest extends BaseTest {
     @Test(description = "Buying product 'Printed Summer Dress' by Bank Wire")
     public void buyProductByBankWire() {
         loginPage.openPage()
                 .waitForPageOpened()
-                .enterLoginData(EMAIL, PASSWORD)
+                .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened();
         mainPage.openPage()
                 .clickOnPrintedSummerDress()
@@ -23,9 +24,9 @@ public class CheckoutTest extends BaseTest {
                 .waitForPageOpened()
                 .clickOnPayByBankWire()
                 .waitForPageOpened()
-                .clickOnIConfirmMyOrder()
+                .clickOnIConfirmMyOrderBtn()
                 .waitForPageOpened();
-        Assert.assertEquals(orderConfirmationPage.getOrderSum(), "$30.98");
+        Assert.assertEquals(orderConfirmationPage.getOrderSum(), getItemPrintedSummerDress().getItemTotalCost());
         Assert.assertTrue(orderConfirmationPage.getOrderConfirmationMessage());
     }
 }

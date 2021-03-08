@@ -1,6 +1,7 @@
 package pages;
 
 import constants.Constants;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -25,10 +26,12 @@ public class OrderConfirmationPage extends BasePage implements Constants {
         return this;
     }
 
+    @Step("Check for order confirmation message is displayed on order confirmation page")
     public boolean getOrderConfirmationMessage() {
         return driver.findElement(CONFIRM_ORDER_MESSAGE).isDisplayed();
     }
 
+    @Step("Get order sum on order confirmation page")
     public String getOrderSum() {
         return driver.findElement(ORDER_SUM).getText();
     }

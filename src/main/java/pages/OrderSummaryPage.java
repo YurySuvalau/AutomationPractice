@@ -20,14 +20,8 @@ public class OrderSummaryPage extends BasePage implements Constants {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(PROCEED_TO_CHECKOUT_BTN));
         } catch (TimeoutException exception) {
-            Assert.fail(String.format("Order it's not loaded! Locator: '%s' was not found!", PROCEED_TO_CHECKOUT_BTN));
+            Assert.fail(String.format("Order summary it's not loaded! Locator: '%s' was not found!", PROCEED_TO_CHECKOUT_BTN));
         }
         return this;
-    }
-
-    @Step("Click proceed to checkout button")
-    public ShippingCheckoutPage clickOnProceedToCheckoutBtn() {
-        driver.findElement(PROCEED_TO_CHECKOUT_BTN).click();
-        return new ShippingCheckoutPage(driver);
     }
 }

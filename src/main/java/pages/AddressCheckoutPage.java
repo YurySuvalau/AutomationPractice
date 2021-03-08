@@ -20,12 +20,12 @@ public class AddressCheckoutPage extends BasePage implements Constants {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(PROCEED_TO_CHECKOUT_BTN));
         } catch (TimeoutException exception) {
-            Assert.fail(String.format("Cart page is not loaded! Locator: '%s' was not found!", PROCEED_TO_CHECKOUT_BTN));
+            Assert.fail(String.format("Shipping page is not loaded! Locator: '%s' was not found!", PROCEED_TO_CHECKOUT_BTN));
         }
         return this;
     }
 
-    @Step("Click to Proceed to Checkout")
+    @Step("Click to Proceed to Checkout on shipping checkout page")
     public ShippingCheckoutPage clickProceedToCheckoutBtn() {
         driver.findElement(PROCEED_TO_CHECKOUT_BTN).click();
         return new ShippingCheckoutPage(driver);

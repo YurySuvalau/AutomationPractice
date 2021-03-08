@@ -2,13 +2,14 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.PropertyReader;
 
 public class CartTest extends BaseTest {
     @Test(description = "Add product 'Blouse' to shopping cart")
     public void addProductToShoppingCart() {
         loginPage.openPage()
                 .waitForPageOpened()
-                .enterLoginData(EMAIL, PASSWORD)
+                .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened();
         mainPage.openPage()
                 .clickToBlouseItem()
@@ -16,30 +17,30 @@ public class CartTest extends BaseTest {
                 .addToCart()
                 .proceedToCheckoutClick()
                 .waitForPageOpened();
-        Assert.assertEquals(cartPage.getItemName(), "Blouse");
-        Assert.assertEquals(cartPage.getUnitPrice(), "$27.00");
-        Assert.assertEquals(cartPage.getUnitQuantity(), "1");
+        Assert.assertEquals(cartPage.getItemName(), getItemBlouse().getItemName());
+        Assert.assertEquals(cartPage.getUnitQuantity(), getItemBlouse().getItemQuantity());
+        Assert.assertEquals(cartPage.getUnitPrice(), getItemBlouse().getItemUnitPrice());
     }
 
     @Test(description = "Check discount in shopping cart after changing quantity of products in shopping cart")
     public void getDiscountInCart() {
         loginPage.openPage()
                 .waitForPageOpened()
-                .enterLoginData(EMAIL, PASSWORD)
+                .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened();
         mainPage.openPage()
                 .clickOnPrintedSummerDress()
                 .addToCart()
                 .proceedToCheckoutClick()
                 .addQuantityButtonClick();
-        Assert.assertEquals(cartPage.getDiscount(), "-5%");
+        Assert.assertEquals(cartPage.getDiscount(), getItemPrintedSummerDress().getItemDiscount());
     }
 
     @Test(description = "Delete product 'Printed Summer Dress' from shopping cart")
     public void deleteProductFromCart() {
         loginPage.openPage()
                 .waitForPageOpened()
-                .enterLoginData(EMAIL, PASSWORD)
+                .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened();
         mainPage.openPage()
                 .clickOnPrintedSummerDress()
@@ -54,13 +55,13 @@ public class CartTest extends BaseTest {
     public void increaseQuantity() {
         loginPage.openPage()
                 .waitForPageOpened()
-                .enterLoginData(EMAIL, PASSWORD)
+                .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened();
         mainPage.openPage()
                 .clickOnPrintedSummerDress()
                 .addToCart()
                 .proceedToCheckoutClick()
                 .addQuantityButtonClick();
-        Assert.assertEquals(cartPage.getTotalPrice(), "$59.96");
+        Assert.assertEquals(cartPage.getTotalPrice(), getItemPrintedSummerDress().getItemTwoQuantity());
     }
 }

@@ -1,6 +1,7 @@
 package pages;
 
 import constants.Constants;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -25,11 +26,13 @@ public class MyWishlistsPage extends BasePage implements Constants {
         return this;
     }
 
+    @Step("Click on wishlist name on wishlist page")
     public MyWishlistsPage myWishlistNameClick() {
         driver.findElement(WISHLIST_NAME).click();
         return this;
     }
 
+    @Step("Check for 'Printed Summer Dress' is displayed")
     public boolean isDisplayedPrintedSummerDress() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(PRINTED_SUMMER_DRESS));
@@ -39,6 +42,7 @@ public class MyWishlistsPage extends BasePage implements Constants {
         return driver.findElement(PRINTED_SUMMER_DRESS).isDisplayed();
     }
 
+    @Step("Open my wishlist page")
     public MyWishlistsPage openPage() {
         driver.get(URL + URL_MAIN_PAGE + URL_MY_WISHLISTS);
         return this;

@@ -35,25 +35,25 @@ public class ProductPage extends BasePage implements Constants {
         return this;
     }
 
-    @Step("Select 'white' color of product")
+    @Step("Select 'white' color of product on product page")
     public ProductPage selectWhiteColorOfItem() {
         driver.findElement(SELECT_COLOR_WHITE).click();
         return this;
     }
 
-    @Step("Click 'Add to cart' button")
+    @Step("Click 'Add to cart' button on product page")
     public AddedProductModalPage addToCart() {
         driver.findElement(ADD_TO_CART_BUTTON).click();
         return new AddedProductModalPage(driver);
     }
 
-    @Step("Click on 'Wishlist' button")
+    @Step("Click on 'Wishlist' button on product page")
     public ProductPage wishlistClick() {
         driver.findElement(WISHLIST_BTN).click();
         return this;
     }
 
-    @Step("Close pop-up message")
+    @Step("Close pop-up message on product page")
     public ProductPage closeMessage() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(MESSAGE_ADDED_TO_WISHLIST));

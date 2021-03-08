@@ -44,28 +44,28 @@ public class CartPage extends BasePage implements Constants {
         return this;
     }
 
-    @Step("Get product name")
+    @Step("Get product name on cart page")
     public String getItemName() {
         return driver.findElement(ITEM_NAME_BLOUSE).getText();
     }
 
-    @Step("Get product unit price")
+    @Step("Get product unit price on cart page")
     public String getUnitPrice() {
         return driver.findElement(UNIT_PRICE).getText();
     }
 
-    @Step("Get product quantity")
+    @Step("Get product quantity on cart page")
     public String getUnitQuantity() {
         return driver.findElement(QUANTITY_INPUT).getAttribute("value");
     }
 
-    @Step("Click to Add quantity button")
+    @Step("Click to 'Add quantity button' on cart page")
     public CartPage addQuantityButtonClick() {
         driver.findElement(ADD_QUANTITY_BUTTON).click();
         return this;
     }
 
-    @Step("Get discount")
+    @Step("Get discount on cart page")
     public String getDiscount() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(SHIPPING_CART_CONTAINS_2_LABEL));
@@ -75,19 +75,19 @@ public class CartPage extends BasePage implements Constants {
         return driver.findElement(DISCOUNT).getText().trim();
     }
 
-    @Step("Click on delete button")
+    @Step("Click on delete button on cart page")
     public CartPage deleteBtnClick() {
         driver.findElement(DELETE_BTN).click();
         return this;
     }
 
-    @Step("Get item name")
+    @Step("Get item name on cart page")
     public CartPage getItemNameInCart() {
         driver.findElement(ITEM_NAME).getText();
         return this;
     }
 
-    @Step("Get cat empty message")
+    @Step("Get cart empty message on cart page")
     public boolean isDisplayedEmptyCartMessage() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(EMPTY_CART_MESSAGE));
@@ -98,13 +98,13 @@ public class CartPage extends BasePage implements Constants {
         return driver.findElement(EMPTY_CART_MESSAGE).isDisplayed();
     }
 
-    @Step("Click Proceed to checkout button")
+    @Step("Click Proceed to checkout button on cart page ")
     public AddressCheckoutPage clickProceedToCheckout() {
         driver.findElement(PROCEED_TO_CHECKOUT_BTN).click();
         return new AddressCheckoutPage(driver);
     }
 
-    @Step("Get total price")
+    @Step("Get total price on cart page")
     public String getTotalPrice() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(SHIPPING_CART_CONTAINS_2_LABEL));

@@ -20,12 +20,12 @@ public class PaymentCheckoutPage extends BasePage implements Constants {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(PAYMENT_BY_BANK_WARE_BTN));
         } catch (TimeoutException exception) {
-            Assert.fail(String.format("Main page it's not loaded! Locator: '%s' was not found!", PAYMENT_BY_BANK_WARE_BTN));
+            Assert.fail(String.format("Payment checkout page it's not loaded! Locator: '%s' was not found!", PAYMENT_BY_BANK_WARE_BTN));
         }
         return this;
     }
 
-    @Step("Click on 'Pay by Bank wire'")
+    @Step("Click on 'Pay by Bank wire' on payment checkout page")
     public BankWirePaymentPage clickOnPayByBankWire() {
         driver.findElement(PAYMENT_BY_BANK_WARE_BTN).click();
         return new BankWirePaymentPage(driver);

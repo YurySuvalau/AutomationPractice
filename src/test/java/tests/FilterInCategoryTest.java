@@ -2,13 +2,14 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.PropertyReader;
 
 public class FilterInCategoryTest extends BaseTest {
     @Test(description = "Select 'white color' of product in category page")
     public void selectWhiteColorInFilter() {
         loginPage.openPage()
                 .waitForPageOpened()
-                .enterLoginData(EMAIL, PASSWORD)
+                .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened();
         mainPage.openPage()
                 .clickOnDressBtn()
@@ -21,14 +22,14 @@ public class FilterInCategoryTest extends BaseTest {
     public void selectSubcategoryCasualDress() {
         loginPage.openPage()
                 .waitForPageOpened()
-                .enterLoginData(EMAIL, PASSWORD)
+                .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened();
         mainPage.openPage()
                 .clickOnDressBtn()
                 .waitForPageOpened();
-        Assert.assertEquals(categoryPage.getProductCount(), "Showing 1 - 5 of 5 items");
+        Assert.assertEquals(categoryPage.getProductCount(), getItemProductCount().getProductCountFiveItem());
         categoryPage.clickCasualDressSubcategory();
-        Assert.assertEquals(categoryPage.getProductCount(), "Showing 1 - 1 of 1 item");
+        Assert.assertEquals(categoryPage.getProductCount(), getItemProductCount().getProductCountOneItem());
     }
 }
 

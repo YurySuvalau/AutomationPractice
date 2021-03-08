@@ -1,6 +1,7 @@
 package pages;
 
 import constants.Constants;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -25,11 +26,13 @@ public class OrderHistoryPage extends BasePage implements Constants {
         return this;
     }
 
+    @Step("Click on order number on order history page")
     public OrderHistoryPage clickOnOrderNumber() {
         driver.findElement(ORDER_NUMBER).click();
         return this;
     }
 
+    @Step("Check product name on order history page")
     public boolean checkProductName() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(PRODUCT_INFO));

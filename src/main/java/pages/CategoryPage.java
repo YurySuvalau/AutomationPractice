@@ -23,7 +23,7 @@ public class CategoryPage extends BasePage implements Constants {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(WHITE_COLOR_IN_FILTER));
         } catch (TimeoutException exception) {
-            Assert.fail(String.format("Wishlist page it's not loaded! Locator: '%s' was not found!", WHITE_COLOR_IN_FILTER));
+            Assert.fail(String.format("Category page it's not loaded! Locator: '%s' was not found!", WHITE_COLOR_IN_FILTER));
         }
         return this;
     }
@@ -34,18 +34,18 @@ public class CategoryPage extends BasePage implements Constants {
         return this;
     }
 
-    @Step("Select 'white' color in category filter")
+    @Step("Select 'white' color in category filter on category page")
     public CategoryPage selectColorWhiteInFilter() {
         driver.findElement(WHITE_COLOR_IN_FILTER).click();
         return this;
     }
 
-    @Step("Loading logo displayed")
+    @Step("'Loading' logo displayed on category page")
     public boolean isDisplayedLoadingLogo() {
         return driver.findElement(LOADING_LOGO).isDisplayed();
     }
 
-    @Step("Click on 'Casual Dress' category")
+    @Step("Click on 'Casual Dress' category on category page")
     public CategoryPage clickCasualDressSubcategory() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(CASUAL_DRESS_SUBCATEGORY));
@@ -56,7 +56,7 @@ public class CategoryPage extends BasePage implements Constants {
         return this;
     }
 
-    @Step("Get product count")
+    @Step("Get 'Product count' on category page")
     public String getProductCount() {
         return driver.findElement(PRODUCT_COUNT).getText().trim();
     }

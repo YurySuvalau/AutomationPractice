@@ -1,6 +1,7 @@
 package tests;
 
-import Utils.CapabilitiesGenerator;
+import test_data.TestItem;
+import utils.CapabilitiesGenerator;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.SessionNotCreatedException;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +20,7 @@ import test_data.TestConstants;
 import java.util.concurrent.TimeUnit;
 
 @Listeners(TestListener.class)
-public class BaseTest implements TestConstants {
+public class BaseTest extends TestItem implements TestConstants {
     WebDriver driver;
     AddressCheckoutPage addressCheckoutPage;
     PaymentCheckoutPage paymentCheckoutPage;
