@@ -30,7 +30,7 @@ public class CategoryPage extends BasePage implements Constants {
 
     @Step("Open category page")
     public CategoryPage openPage() {
-        driver.get(URL + URL_MAIN_PAGE + URL_CATEGORY);
+        driver.get(URL_AUTOMATIONPRACTICE + URL_MAIN_PAGE + URL_CATEGORY);
         return this;
     }
 

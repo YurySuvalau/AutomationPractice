@@ -14,15 +14,15 @@ public class CartPage extends BasePage implements Constants {
 
     private static final By PROCEED_TO_CHECKOUT_BTN = By.xpath("//*[@class='button btn btn-default standard-checkout button-medium']");
     private static final By QUANTITY_INPUT = By.xpath("//*[@class='cart_quantity_input form-control grey']");
-    private static final By UNIT_PRICE = By.xpath("//*[@class='cart_unit']");
+    private static final By UNIT_PRICE_IN_CART = By.xpath("//*[@class='cart_unit']//*[contains(@id,'product_price')]");
     private static final By TOTAL_PRICE = By.id("total_price");
-    private static final By ITEM_NAME_BLOUSE = By.xpath("//*[contains(@class,'cart_item ')]//*[contains(text(),'Blouse')]");
     private static final By DISCOUNT = By.xpath("//*[@class='price-percent-reduction small']");
     private static final By ADD_QUANTITY_BUTTON = By.xpath("//*[@class='cart_quantity_up btn btn-default button-plus']");
     private static final By DELETE_BTN = By.xpath("//*[@title='Delete']");
-    private static final By ITEM_NAME = By.xpath("//*[@class='cart_description']");
+    private static final By ITEM_NAME_IN_CART = By.xpath("//*[@class='cart_description']//*[@class='product-name']");
     private static final By EMPTY_CART_MESSAGE = By.xpath("//*[@class='alert alert-warning']");
     private static final By SHIPPING_CART_CONTAINS_2_LABEL = By.xpath("//*[@id='summary_products_quantity'][text()='2 Products']");
+    private static final By SHIPPING_COST = By.id("total_shipping");
 
     public CartPage(WebDriver driver) {
         super(driver);
@@ -40,18 +40,18 @@ public class CartPage extends BasePage implements Constants {
 
     @Step("Open shopping cart page")
     public CartPage openPage() {
-        driver.get(URL + URL_MAIN_PAGE + URL_CART_PAGE);
+        driver.get(URL_AUTOMATIONPRACTICE + URL_MAIN_PAGE + URL_CART_PAGE);
         return this;
     }
 
     @Step("Get product name on cart page")
     public String getItemName() {
-        return driver.findElement(ITEM_NAME_BLOUSE).getText();
+        return driver.findElement(ITEM_NAME_IN_CART).getText();
     }
 
     @Step("Get product unit price on cart page")
     public String getUnitPrice() {
-        return driver.findElement(UNIT_PRICE).getText();
+        return driver.findElement(UNIT_PRICE_IN_CART).getText();
     }
 
     @Step("Get product quantity on cart page")
@@ -83,7 +83,7 @@ public class CartPage extends BasePage implements Constants {
 
     @Step("Get item name on cart page")
     public CartPage getItemNameInCart() {
-        driver.findElement(ITEM_NAME).getText();
+        driver.findElement(ITEM_NAME_IN_CART).getText();
         return this;
     }
 

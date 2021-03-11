@@ -12,7 +12,7 @@ public class CheckoutTest extends BaseTest {
                 .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened();
         mainPage.openPage()
-                .clickOnPrintedSummerDress()
+                .clickOnItem("Printed Summer Dress",0)
                 .addToCart()
                 .proceedToCheckoutClick()
                 .clickProceedToCheckout()

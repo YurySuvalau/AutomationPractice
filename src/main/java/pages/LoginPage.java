@@ -30,7 +30,7 @@ public class LoginPage extends BasePage implements Constants {
 
     @Step("Open login page")
     public LoginPage openPage() {
-        driver.get(URL + URL_LOGIN_PAGE);
+        driver.get(URL_AUTOMATIONPRACTICE + URL_LOGIN_PAGE);
         return this;
     }
 

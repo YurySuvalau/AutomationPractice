@@ -2,16 +2,19 @@ package pages;
 
 import constants.Constants;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
+@Log4j2
 public class MainPage extends BasePage implements Constants {
-    private static final By BLACK_BLOUSE_ITEM = By.xpath("//*[@id='homefeatured']//*[@class='product-container']//*[@class='product-name'][contains(text(),'Blouse')]");
-    private static final By PRINTED_SUMMER_DRESS = By.xpath("//*[@id='homefeatured']//*[contains(@class,'first-item-of-mobile-line')]//*[normalize-space(text())='Printed Summer Dress']");
+    private static final String ITEM_PRICE = "//*[@id='homefeatured']//*[contains(text(),'%s')]/ancestor::*[@class='product-container']//*[@class='right-block']//*[contains(@class, 'product-price']";
     private static final By DRESS_BTN = By.xpath("//*[@class='sf-menu clearfix menu-content sf-js-enabled sf-arrows']/*/*[@title='Dresses']");
+    private static final String ITEM_NAME_IN_CART = "//*[contains(@class,'cart_item')]//*[contains(text(),'%s')]";
+    private static final String ITEM_NAME_MAIN_PAGE = "//*[@id='homefeatured']//*[@class='product-container']//*[@class='product-name'][normalize-space(text())='%s']";
 
     public MainPage(WebDriver driver) {
         super(driver);
@@ -20,16 +23,16 @@ public class MainPage extends BasePage implements Constants {
     @Override
     public MainPage waitForPageOpened() {
         try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(BLACK_BLOUSE_ITEM));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(DRESS_BTN));
         } catch (TimeoutException exception) {
-            Assert.fail(String.format("Main page it's not loaded! Locator: '%s' was not found!", BLACK_BLOUSE_ITEM));
+            Assert.fail(String.format("Main page it's not loaded! Locator: '%s' was not found!", DRESS_BTN));
         }
         return this;
     }
 
     @Step("Open main page")
     public MainPage openPage() {
-        driver.get(URL + URL_MAIN_PAGE);
+        driver.get(URL_AUTOMATIONPRACTICE + URL_MAIN_PAGE);
         return this;
     }
 
@@ -38,21 +41,21 @@ public class MainPage extends BasePage implements Constants {
         return driver.getCurrentUrl();
     }
 
-    @Step("Click on product 'Blouse' on main page")
-    public ProductPage clickToBlouseItem() {
-        driver.findElement(BLACK_BLOUSE_ITEM).click();
-        return new ProductPage(driver);
-    }
-
-    @Step("Click on product 'Printed Summer Dress' on main page")
-    public ProductPage clickOnPrintedSummerDress() {
-        driver.findElement(PRINTED_SUMMER_DRESS).click();
-        return new ProductPage(driver);
-    }
-
     @Step("Click on 'Dress' button on main page")
     public CategoryPage clickOnDressBtn() {
         driver.findElement(DRESS_BTN).click();
         return new CategoryPage(driver);
     }
+
+    @Step("Get item price on main page ")
+    public String getItemPrice(String itemName, int index) {
+        return driver.findElements(By.xpath(String.format(ITEM_PRICE, itemName))).get(index).getText().trim();
+    }
+
+    @Step("Click on product {itemName} on main page")
+    public ProductPage clickOnItem(String itemName, int index) {
+        driver.findElements(By.xpath(String.format(ITEM_NAME_MAIN_PAGE, itemName))).get(index).click();
+        return new ProductPage(driver);
+    }
+
 }

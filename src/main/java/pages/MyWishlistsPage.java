@@ -44,7 +44,7 @@ public class MyWishlistsPage extends BasePage implements Constants {
 
     @Step("Open my wishlist page")
     public MyWishlistsPage openPage() {
-        driver.get(URL + URL_MAIN_PAGE + URL_MY_WISHLISTS);
+        driver.get(URL_AUTOMATIONPRACTICE + URL_MAIN_PAGE + URL_MY_WISHLISTS);
         return this;
     }
 }

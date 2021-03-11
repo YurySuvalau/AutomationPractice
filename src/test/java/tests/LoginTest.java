@@ -11,7 +11,7 @@ public class LoginTest extends BaseTest {
     public void enterAllDataOnLoginPage() {
         loginPage.openPage()
                 .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")));
-        Assert.assertEquals(mainPage.getUrl(), Constants.URL+Constants.URL_MAIN_PAGE+Constants.URL_ACCOUNT_PAGE);
+        Assert.assertEquals(mainPage.getUrl(), Constants.URL_AUTOMATIONPRACTICE+Constants.URL_MAIN_PAGE+Constants.URL_ACCOUNT_PAGE);
     }
 
     @Test(description = "Don't fill password field on login page")

@@ -30,7 +30,7 @@ public class CustomerAccountPage extends BasePage implements Constants {
 
     @Step("Open customer account page")
     public CustomerAccountPage openPage() {
-        driver.get(URL + URL_MAIN_PAGE + URL_ACCOUNT_PAGE);
+        driver.get(URL_AUTOMATIONPRACTICE + URL_MAIN_PAGE + URL_ACCOUNT_PAGE);
         return this;
     }
 

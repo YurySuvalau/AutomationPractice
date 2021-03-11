@@ -12,7 +12,7 @@ public class WishlistTest extends BaseTest {
                 .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened();
         mainPage.openPage()
-                .clickOnPrintedSummerDress()
+                .clickOnItem("Printed Summer Dress", 0)
                 .waitForPageOpened()
                 .wishlistClick()
                 .closeMessage();
@@ -31,7 +31,7 @@ public class WishlistTest extends BaseTest {
                 .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened();
         mainPage.openPage()
-                .clickOnPrintedSummerDress()
+                .clickOnItem("Printed Summer Dress", 0)
                 .waitForPageOpened()
                 .addToCart()
                 .waitForPageOpened()

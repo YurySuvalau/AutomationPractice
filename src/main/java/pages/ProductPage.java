@@ -31,7 +31,7 @@ public class ProductPage extends BasePage implements Constants {
 
     @Step("Open product page")
     public ProductPage openPage() {
-        driver.get(URL + URL_MAIN_PAGE + URL_PRODUCTS_PAGE);
+        driver.get(URL_AUTOMATIONPRACTICE + URL_MAIN_PAGE + URL_PRODUCTS_PAGE);
         return this;
     }
 
