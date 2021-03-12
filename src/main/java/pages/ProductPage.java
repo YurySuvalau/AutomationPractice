@@ -18,6 +18,8 @@ public class ProductPage extends BasePage implements Constants {
     private static final By WISHLIST_BTN = By.xpath("//*[@id='wishlist_button']");
     private static final By CLOSE_MESSAGE_ADDED_TO_WISHLIST = By.xpath("//*[@title='Close']");
     private static final By MESSAGE_ADDED_TO_WISHLIST = By.xpath("//*[@class='fancybox-skin']");
+    private static final By QUANTITY_IN_PRODUCT_CART = By.xpath("//input[@id='quantity_wanted']");
+    private static final By DISCOUNT = By.xpath("//span[@id='reduction_percent_display']");
 
     @Override
     public ProductPage waitForPageOpened() {
@@ -62,5 +64,15 @@ public class ProductPage extends BasePage implements Constants {
         }
         driver.findElement(CLOSE_MESSAGE_ADDED_TO_WISHLIST).click();
         return this;
+    }
+
+    @Step("Get quantity on product page")
+    public String getQuantity() {
+        return driver.findElement(QUANTITY_IN_PRODUCT_CART).getAttribute("value");
+    }
+
+    @Step("Get discount on product page")
+    public String getDiscount() {
+        return driver.findElement(DISCOUNT).getText();
     }
 }

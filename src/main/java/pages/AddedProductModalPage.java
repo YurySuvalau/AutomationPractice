@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class AddedProductModalPage extends BasePage implements Constants {
-    private static final By PROCEED_TO_CHECKOUT_BTN = By.xpath("//*[@title='Proceed to checkout']");
+    private static final By PROCEED_TO_CHECKOUT_BTN = By.xpath("//*[contains(@title,'Proceed')]");
 
     public AddedProductModalPage(WebDriver driver) {
         super(driver);

@@ -11,7 +11,7 @@ public class SearchTest extends BaseTest {
                 .waitForPageOpened()
                 .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened()
-                .searchItem()
+                .searchItem("Summer Dress")
                 .waitForPageOpened();
         Assert.assertTrue(searchPage.getListAfterSearch());
     }

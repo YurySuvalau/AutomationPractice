@@ -11,11 +11,16 @@ public class CheckoutTest extends BaseTest {
                 .waitForPageOpened()
                 .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened();
-        mainPage.openPage()
-                .clickOnItem("Printed Summer Dress",0)
-                .addToCart()
+        mainPage.openPage();
+        getItemPrintedSummerDress().setItemPrice(mainPage.getItemPrice("Printed Summer Dress", 0));
+        mainPage.clickOnItem("Printed Summer Dress", 0);
+        productPage.addToCart()
+                .waitForPageOpened()
                 .proceedToCheckoutClick()
-                .clickProceedToCheckout()
+                .waitForPageOpened();
+        getItemPrintedSummerDress().setItemQuantity(cartPage.getUnitQuantity());
+        getItemPrintedSummerDress().setItemShippingCost(cartPage.getShippingPrice());
+        cartPage.clickProceedToCheckout()
                 .waitForPageOpened()
                 .clickProceedToCheckoutBtn()
                 .waitForPageOpened()
@@ -26,7 +31,6 @@ public class CheckoutTest extends BaseTest {
                 .waitForPageOpened()
                 .clickOnIConfirmMyOrderBtn()
                 .waitForPageOpened();
-        Assert.assertEquals(orderConfirmationPage.getOrderSum(), getItemPrintedSummerDress().getItemTotalCost());
         Assert.assertTrue(orderConfirmationPage.getOrderConfirmationMessage());
     }
 }

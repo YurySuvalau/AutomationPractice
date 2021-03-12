@@ -11,11 +11,10 @@ import org.testng.Assert;
 
 @Log4j2
 public class MainPage extends BasePage implements Constants {
-    private static final String ITEM_PRICE = "//*[@id='homefeatured']//*[contains(text(),'%s')]/ancestor::*[@class='product-container']//*[@class='right-block']//*[contains(@class, 'product-price']";
-    private static final By DRESS_BTN = By.xpath("//*[@class='sf-menu clearfix menu-content sf-js-enabled sf-arrows']/*/*[@title='Dresses']");
+    private static final String ITEM_PRICE = "//*[@id='homefeatured']//*[contains(text(),'%s')]/ancestor::*[@class='product-container']//*[@class='right-block']//*[contains(@class,'product-price')]";
+    private static final By DRESS_BTN = By.xpath("//*[contains(@class,'sf-js-enabled')]/*/*[@title='Dresses']");
     private static final String ITEM_NAME_IN_CART = "//*[contains(@class,'cart_item')]//*[contains(text(),'%s')]";
     private static final String ITEM_NAME_MAIN_PAGE = "//*[@id='homefeatured']//*[@class='product-container']//*[@class='product-name'][normalize-space(text())='%s']";
-
     public MainPage(WebDriver driver) {
         super(driver);
     }
@@ -47,7 +46,7 @@ public class MainPage extends BasePage implements Constants {
         return new CategoryPage(driver);
     }
 
-    @Step("Get item price on main page ")
+    @Step("Get {itemName} price on main page ")
     public String getItemPrice(String itemName, int index) {
         return driver.findElements(By.xpath(String.format(ITEM_PRICE, itemName))).get(index).getText().trim();
     }
@@ -57,5 +56,4 @@ public class MainPage extends BasePage implements Constants {
         driver.findElements(By.xpath(String.format(ITEM_NAME_MAIN_PAGE, itemName))).get(index).click();
         return new ProductPage(driver);
     }
-
 }

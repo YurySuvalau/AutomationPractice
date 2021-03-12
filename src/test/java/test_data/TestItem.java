@@ -13,9 +13,9 @@ import object.Item;
 public class TestItem {
     Item itemBlouse = Item.builder()
             .itemName("Blouse")
-            .itemQuantity("1")
             .build();
     Item itemPrintedSummerDress = Item.builder()
+            .itemName("Printed Summer Dress")
             .build();
     Item itemProductCount = Item.builder()
             .build();

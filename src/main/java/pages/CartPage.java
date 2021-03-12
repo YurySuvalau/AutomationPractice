@@ -12,17 +12,18 @@ import org.testng.Assert;
 @Log4j2
 public class CartPage extends BasePage implements Constants {
 
-    private static final By PROCEED_TO_CHECKOUT_BTN = By.xpath("//*[@class='button btn btn-default standard-checkout button-medium']");
-    private static final By QUANTITY_INPUT = By.xpath("//*[@class='cart_quantity_input form-control grey']");
+    private static final By PROCEED_TO_CHECKOUT_BTN = By.xpath("//*[contains(@class,'cart_navigation')]//*[contains(text(),'Proceed')]");
+    private static final By QUANTITY_INPUT = By.xpath("//*[contains(@class, 'cart_quantity_input')]");
     private static final By UNIT_PRICE_IN_CART = By.xpath("//*[@class='cart_unit']//*[contains(@id,'product_price')]");
     private static final By TOTAL_PRICE = By.id("total_price");
-    private static final By DISCOUNT = By.xpath("//*[@class='price-percent-reduction small']");
-    private static final By ADD_QUANTITY_BUTTON = By.xpath("//*[@class='cart_quantity_up btn btn-default button-plus']");
+    private static final By DISCOUNT = By.xpath("//*[contains(@class,'price-percent-reduction')]");
+    private static final By ADD_QUANTITY_BUTTON = By.xpath("//*[contains(@class,'cart_quantity_up')]");
     private static final By DELETE_BTN = By.xpath("//*[@title='Delete']");
     private static final By ITEM_NAME_IN_CART = By.xpath("//*[@class='cart_description']//*[@class='product-name']");
     private static final By EMPTY_CART_MESSAGE = By.xpath("//*[@class='alert alert-warning']");
     private static final By SHIPPING_CART_CONTAINS_2_LABEL = By.xpath("//*[@id='summary_products_quantity'][text()='2 Products']");
     private static final By SHIPPING_COST = By.id("total_shipping");
+    private static final By HIDDEN_QUANTITY = By.xpath("//input[contains(@name,'quantity')][@type='hidden']");
 
     public CartPage(WebDriver driver) {
         super(driver);
@@ -59,6 +60,11 @@ public class CartPage extends BasePage implements Constants {
         return driver.findElement(QUANTITY_INPUT).getAttribute("value");
     }
 
+    @Step("Get product shipping price")
+    public String getShippingPrice() {
+        return driver.findElement(SHIPPING_COST).getText();
+    }
+
     @Step("Click to 'Add quantity button' on cart page")
     public CartPage addQuantityButtonClick() {
         driver.findElement(ADD_QUANTITY_BUTTON).click();
@@ -68,11 +74,20 @@ public class CartPage extends BasePage implements Constants {
     @Step("Get discount on cart page")
     public String getDiscount() {
         try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(SHIPPING_CART_CONTAINS_2_LABEL));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(DISCOUNT));
         } catch (TimeoutException exception) {
-            Assert.fail(String.format("Label contains 1 product is not displayed! Locator: '%s' was not found!", SHIPPING_CART_CONTAINS_2_LABEL));
+            Assert.fail(String.format("Label discount is not displayed! Locator: '%s' was not found!", DISCOUNT));
         }
         return driver.findElement(DISCOUNT).getText().trim();
+    }
+
+    public CartPage waitDiscountLoaded() {
+        try {
+            wait.until(ExpectedConditions.attributeToBe(HIDDEN_QUANTITY, "value", "2"));
+        } catch (TimeoutException exception) {
+            Assert.fail(String.format("Label discount is not displayed! Locator: '%s' was not found!", HIDDEN_QUANTITY));
+        }
+        return this;
     }
 
     @Step("Click on delete button on cart page")

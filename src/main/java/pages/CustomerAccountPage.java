@@ -41,8 +41,8 @@ public class CustomerAccountPage extends BasePage implements Constants {
     }
 
     @Step("Click on 'search field' and search product 'Summer Dress' on customer account page")
-    public SearchPage searchItem() {
-        driver.findElement(SEARCH_INPUT).sendKeys("Summer Dress");
+    public SearchPage searchItem(String itemName) {
+        driver.findElement(SEARCH_INPUT).sendKeys(itemName);
         driver.findElement(SEARCH_BTN).click();
         return new SearchPage(driver);
     }

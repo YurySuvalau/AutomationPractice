@@ -12,6 +12,7 @@ public class FilterInCategoryTest extends BaseTest {
                 .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened();
         mainPage.openPage()
+                .waitForPageOpened()
                 .clickOnDressBtn()
                 .waitForPageOpened()
                 .selectColorWhiteInFilter();
@@ -24,12 +25,11 @@ public class FilterInCategoryTest extends BaseTest {
                 .waitForPageOpened()
                 .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened();
-        mainPage.openPage()
-                .clickOnDressBtn()
+        categoryPage.openPage()
                 .waitForPageOpened();
-        Assert.assertEquals(categoryPage.getProductCount(), getItemProductCount().getProductCountFiveItem());
-        categoryPage.clickCasualDressSubcategory();
-        Assert.assertEquals(categoryPage.getProductCount(), getItemProductCount().getProductCountOneItem());
+        getItemProductCount().setProductCountOnCategoryPage(categoryPage.getProductCount());
+                categoryPage.clickCasualDressSubcategory();
+        Assert.assertNotEquals(categoryPage.getProductCount(), getItemProductCount().getProductCountOnCategoryPage());
     }
 }
 
