@@ -14,8 +14,6 @@
         <allure.testng.version>2.7.0</allure.testng.version>
         <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-        <maven.compiler.sourse>8</maven.compiler.sourse>
-        <maven.compiler.target>8</maven.compiler.target>
         <aspectjweaver.version>1.9.1</aspectjweaver.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <log4j-core.version>2.13.0</log4j-core.version>
