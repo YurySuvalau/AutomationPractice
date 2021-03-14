@@ -14,22 +14,22 @@ import java.util.concurrent.TimeUnit;
 public class TestListener implements ITestListener {
 
     public void onTestStart(ITestResult iTestResult) {
-        System.out.println((String.format("======================================== STARTING TEST %s ========================================", iTestResult.getName())));
+        System.out.println((String.format("======================================== STARTING TEST %s ========================================", iTestResult.getMethod())));
     }
 
     public void onTestSuccess(ITestResult iTestResult) {
-        System.out.println(String.format("======================================== FINISHED TEST %s Duration: %ss ========================================", iTestResult.getName(),
+        System.out.println(String.format("======================================== FINISHED TEST %s Duration: %ss ========================================", iTestResult.getMethod(),
                 getExecutionTime(iTestResult)));
     }
 
     public void onTestFailure(ITestResult iTestResult) {
-        System.out.println(String.format("======================================== FAILED TEST %s Duration: %ss ========================================", iTestResult.getName(),
+        System.out.println(String.format("======================================== FAILED TEST %s Duration: %ss ========================================", iTestResult.getMethod(),
                 getExecutionTime(iTestResult)));
         takeScreenshot(iTestResult);
     }
 
     public void onTestSkipped(ITestResult iTestResult) {
-        System.out.println(String.format("======================================== SKIPPING TEST %s ========================================", iTestResult.getName()));
+        System.out.println(String.format("======================================== SKIPPING TEST %s ========================================", iTestResult.getMethod()));
         takeScreenshot(iTestResult);
     }
 

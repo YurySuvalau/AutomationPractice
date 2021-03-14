@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import utils.PropertyReader;
 
 public class WishlistTest extends BaseTest {
+
     @Test(description = "Add product to wishlist")
     public void addProductToWishlist() {
         loginPage.openPage()
