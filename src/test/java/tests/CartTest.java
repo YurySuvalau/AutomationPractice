@@ -60,7 +60,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test(description = "Check discount in shopping cart after changing quantity of products in shopping cart", groups = {"Smoke tests"})
-    public void discountTest() {
+    public void getDiscount() {
         loginPage.openPage()
                 .waitForPageOpened()
                 .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))

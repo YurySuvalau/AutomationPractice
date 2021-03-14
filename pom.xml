@@ -12,11 +12,11 @@
         <testng.version>7.0.0</testng.version>
         <selenium.version>3.141.59</selenium.version>
         <allure.testng.version>2.7.0</allure.testng.version>
-        <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
+        <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <aspectjweaver.version>1.9.1</aspectjweaver.version>
         <allure-maven.version>2.10.0</allure-maven.version>
-        <log4j-core.version>2.13.0</log4j-core.version>
+        <log4j-core.version>2.13.3</log4j-core.version>
         <lombok.versoin>1.18.0</lombok.versoin>
         <webdrivermanager.version>4.2.2</webdrivermanager.version>
         <junit.version>4.12</junit.version>
@@ -64,7 +64,7 @@
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
-            <scope>test</scope>
+
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
@@ -100,12 +100,6 @@
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${testng.version}</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>
