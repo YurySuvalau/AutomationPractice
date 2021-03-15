@@ -6,7 +6,7 @@ import utils.PropertyReader;
 
 public class SearchTest extends BaseTest {
 
-    @Test(description = "Searching product 'Summer Dress'", groups = {"Smoke tests"})
+    @Test(description = "Searching product 'Summer Dress'", groups = "Smoke tests")
     public void searchTest() {
         loginPage.openPage()
                 .waitForPageOpened()

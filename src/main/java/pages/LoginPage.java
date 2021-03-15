@@ -32,14 +32,14 @@ public class LoginPage extends BasePage implements Constants {
 
     @Step("Open login page")
     public LoginPage openPage() {
-        log.info("Url" + URL_AUTOMATIONPRACTICE + URL_MAIN_PAGE + URL_LOGIN_PAGE + "is loaded");
+        log.info("Url " + URL_AUTOMATIONPRACTICE + URL_MAIN_PAGE + URL_LOGIN_PAGE + " is loaded");
         driver.get(URL_AUTOMATIONPRACTICE + URL_LOGIN_PAGE);
         return this;
     }
 
     @Step("Enter email and password on login page")
     public CustomerAccountPage enterLoginData(String email, String password) {
-        log.info("Click on field 'Email' on login page and send email address" + email + ", locator is " + EMAIL_INPUT);
+        log.info("Click on field 'Email' on login page and send email address " + email + ", locator is " + EMAIL_INPUT);
         driver.findElement(EMAIL_INPUT).sendKeys(email);
         log.info("Click on field 'Password' on login page, locator is " + PASSWORD_INPUT);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);

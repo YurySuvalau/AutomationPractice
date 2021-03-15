@@ -31,7 +31,7 @@ public class MainPage extends BasePage implements Constants {
 
     @Step("Open main page")
     public MainPage openPage() {
-        log.info("Url" + URL_AUTOMATIONPRACTICE + URL_MAIN_PAGE + URL_MAIN_PAGE + "is loaded");
+        log.info("Url " + URL_AUTOMATIONPRACTICE + URL_MAIN_PAGE + URL_MAIN_PAGE + " is loaded");
         driver.get(URL_AUTOMATIONPRACTICE + URL_MAIN_PAGE);
         return this;
     }

@@ -32,7 +32,7 @@ public class CategoryPage extends BasePage implements Constants {
 
     @Step("Open category page")
     public CategoryPage openPage() {
-        log.info("Url" + URL_AUTOMATIONPRACTICE + URL_MAIN_PAGE + URL_CATEGORY + "is loaded");
+        log.info("Url " + URL_AUTOMATIONPRACTICE + URL_MAIN_PAGE + URL_CATEGORY + " is loaded");
         driver.get(URL_AUTOMATIONPRACTICE + URL_MAIN_PAGE + URL_CATEGORY);
         return this;
     }

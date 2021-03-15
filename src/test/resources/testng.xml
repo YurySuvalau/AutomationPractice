@@ -13,7 +13,7 @@
 <!--    </test>-->
 <!--    <test name="test 3">-->
 <!--        <classes>-->
-<!--            <class name="tests.WishlistTest"/>-->
+<!--            <class name="tests.CustomerAccountTest"/>-->
 <!--        </classes>-->
 <!--    </test>-->
 <!--    <test name="test 4">-->

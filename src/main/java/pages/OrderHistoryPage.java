@@ -36,13 +36,13 @@ public class OrderHistoryPage extends BasePage implements Constants {
     }
 
     @Step("Check product name on order history page")
-    public boolean checkProductName() {
+    public boolean checkProductName(String itemName) {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(PRODUCT_INFO));
         } catch (TimeoutException exception) {
             log.error(String.format("Product info is not displayed! Locator: '%s' was not found!", PRODUCT_INFO));
         }
         log.info("Click on order number on order history page, locator is: " + ORDER_NUMBER);
-        return driver.findElement(PRODUCT_INFO).getText().contains("Printed Summer Dress");
+        return driver.findElement(PRODUCT_INFO).getText().contains(String.format(itemName));
     }
 }

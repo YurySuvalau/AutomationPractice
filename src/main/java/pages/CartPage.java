@@ -129,13 +129,13 @@ public class CartPage extends BasePage implements Constants {
 
     @Step("Get expected item price on cart page")
     public double getExpectedItemPrice(String itemPrice) {
-        log.info("Get expected price for" + itemPrice + "on cart page");
+        log.info("Get expected price for " + itemPrice + " on cart page");
         return Double.valueOf(itemPrice.replace("$", ""));
     }
 
     @Step("Get expected shipping price on cart page")
     public double getExpectedShippingPrice(String itemPrice) {
-        log.info("Get expected shipping price for" + itemPrice + "on cart page");
+        log.info("Get expected shipping price for " + itemPrice + " on cart page");
         return (Double.valueOf(itemPrice.replace("$", "")));
     }
 }

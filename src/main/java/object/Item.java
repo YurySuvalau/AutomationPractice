@@ -15,6 +15,5 @@ public class Item {
     private String itemQuantity;
     private String itemDiscount;
     private String itemShippingCost;
-    private String itemTotalCost;
     private String productCountOnCategoryPage;
 }

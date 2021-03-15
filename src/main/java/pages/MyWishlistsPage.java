@@ -30,6 +30,7 @@ public class MyWishlistsPage extends BasePage implements Constants {
 
     @Step("Click on wishlist name on wishlist page")
     public MyWishlistsPage myWishlistNameClick() {
+        log.info("Click on wishlist link name, locator is: " + WISHLIST_NAME);
         driver.findElement(WISHLIST_NAME).click();
         return this;
     }
@@ -47,7 +48,7 @@ public class MyWishlistsPage extends BasePage implements Constants {
 
     @Step("Open my wishlist page")
     public MyWishlistsPage openPage() {
-        log.info("Url" + URL_AUTOMATIONPRACTICE + URL_MAIN_PAGE + URL_MY_WISHLISTS + "is loaded");
+        log.info("Url " + URL_AUTOMATIONPRACTICE + URL_MAIN_PAGE + URL_MY_WISHLISTS + " is loaded");
         driver.get(URL_AUTOMATIONPRACTICE + URL_MAIN_PAGE + URL_MY_WISHLISTS);
         return this;
     }
