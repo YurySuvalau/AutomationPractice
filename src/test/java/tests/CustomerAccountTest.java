@@ -4,7 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.PropertyReader;
 
-public class WishlistTest extends BaseTest {
+public class CustomerAccountTest extends BaseTest {
+
     @Test(description = "Add product to wishlist")
     public void addProductToWishlist() {
         loginPage.openPage()
@@ -53,6 +54,6 @@ public class WishlistTest extends BaseTest {
                 .clickOnOrderHistoryBtn()
                 .waitForPageOpened()
                 .clickOnOrderNumber();
-        Assert.assertTrue(orderHistoryPage.checkProductName());
+        Assert.assertTrue(orderHistoryPage.checkProductName("Printed Summer Dress"));
     }
 }

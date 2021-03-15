@@ -15,12 +15,11 @@ import pages.*;
 import pages.AddressCheckoutPage;
 import pages.PaymentCheckoutPage;
 import pages.ShippingCheckoutPage;
-import test_data.TestConstants;
 
 import java.util.concurrent.TimeUnit;
 
 @Listeners(TestListener.class)
-public class BaseTest extends TestItem implements TestConstants {
+public class BaseTest extends TestItem {
     WebDriver driver;
     AddressCheckoutPage addressCheckoutPage;
     PaymentCheckoutPage paymentCheckoutPage;

@@ -5,7 +5,8 @@ import org.testng.annotations.Test;
 import utils.PropertyReader;
 
 public class CheckoutTest extends BaseTest {
-    @Test(description = "Buying product 'Printed Summer Dress' by Bank Wire")
+
+    @Test(description = "Buying product 'Printed Summer Dress' by Bank Wire", groups = "Smoke tests")
     public void buyProductByBankWire() {
         loginPage.openPage()
                 .waitForPageOpened()
