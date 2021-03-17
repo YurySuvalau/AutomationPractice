@@ -2,6 +2,7 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import test_data.TestItem;
 import utils.PropertyReader;
 
 public class FilterInCategoryTest extends BaseTest {
@@ -22,15 +23,16 @@ public class FilterInCategoryTest extends BaseTest {
 
     @Test(description = "Select subcategory 'Casual Dress' in category page", groups = "Smoke tests")
     public void selectSubcategoryCasualDress() {
+        TestItem item = new TestItem();
         loginPage.openPage()
                 .waitForPageOpened()
                 .enterLoginData(System.getenv().getOrDefault("email", PropertyReader.getProperty("email")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")))
                 .waitForPageOpened();
         categoryPage.openPage()
                 .waitForPageOpened();
-        getItemProductCount().setProductCountOnCategoryPage(categoryPage.getProductCount());
+        item.getItemProductCount().setProductCountOnCategoryPage(categoryPage.getProductCount());
                 categoryPage.clickCasualDressSubcategory();
-        Assert.assertNotEquals(categoryPage.getProductCount(), getItemProductCount().getProductCountOnCategoryPage());
+        Assert.assertNotEquals(categoryPage.getProductCount(), item.getItemProductCount().getProductCountOnCategoryPage());
     }
 }
 

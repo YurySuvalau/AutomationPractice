@@ -6,7 +6,7 @@ import utils.PropertyReader;
 
 public class CustomerAccountTest extends BaseTest {
 
-    @Test(description = "Add product to wishlist")
+    @Test(description = "Add product to wishlist", groups = "Extended tests")
     public void addProductToWishlist() {
         loginPage.openPage()
                 .waitForPageOpened()
@@ -25,7 +25,7 @@ public class CustomerAccountTest extends BaseTest {
         Assert.assertTrue(myWishlistsPage.isDisplayedPrintedSummerDress());
     }
 
-    @Test(description = "Check product history after buying product")
+    @Test(description = "Check product history after buying product", groups = "Extended tests")
     public void checkOrderHistory() {
         loginPage.openPage()
                 .waitForPageOpened()
