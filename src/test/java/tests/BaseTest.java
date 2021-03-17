@@ -19,7 +19,7 @@ import pages.ShippingCheckoutPage;
 import java.util.concurrent.TimeUnit;
 
 @Listeners(TestListener.class)
-public class BaseTest extends TestItem {
+public class BaseTest {
     WebDriver driver;
     AddressCheckoutPage addressCheckoutPage;
     PaymentCheckoutPage paymentCheckoutPage;
@@ -38,7 +38,7 @@ public class BaseTest extends TestItem {
     OrderConfirmationPage orderConfirmationPage;
     OrderHistoryPage orderHistoryPage;
 
-    @BeforeMethod
+    @BeforeMethod(groups = "init")
     public void createDriver(ITestContext context) {
         try {
             WebDriverManager.chromedriver().setup();

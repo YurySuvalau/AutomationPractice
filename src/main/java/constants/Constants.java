@@ -9,5 +9,4 @@ public interface Constants {
     String URL_ACCOUNT_PAGE = "?controller=my-account";
     String URL_MY_WISHLISTS = "?fc=module&module=blockwishlist&controller=mywishlist";
     String URL_CATEGORY = "?id_category=8&controller=category";
-    String URL_SEARCH = "?controller=search";
 }
